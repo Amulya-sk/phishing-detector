@@ -1,0 +1,19 @@
+## Python ##
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Byte-compiled / optimized / C extensions
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+## Environment ##
+# Environment variables
+.env
+
+## IDEs / Editors ##
+.vscode/
+.idea/

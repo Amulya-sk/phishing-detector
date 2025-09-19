@@ -1,0 +1,190 @@
+/* Main styles for the Phishing URL Detector index page */
+:root {
+  --bg1: #0a2342;
+  --bg2: #193c6b;
+  --card: #102542;
+  --accent: #4f8cff;
+  --muted: rgba(230, 246, 255, 0.72);
+  --text: #eaf6fb;
+  --green: #4ade80;
+  --yellow: #facc15;
+  --red: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  color: var(--text);
+  margin: 0;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.card {
+  background: var(--card);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.field-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+#url {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #27435f;
+  background: #193c6b;
+  color: var(--text);
+  font-size: 1rem;
+  width: 100%;
+}
+
+#url:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #4f8cff33;
+  border-color: var(--accent);
+}
+
+.primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primary:hover {
+  background: #629cff;
+}
+
+.helper {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0 0;
+}
+
+/* Results Section */
+#result {
+  background: var(--card);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #27435f;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.label.no_risk_detected { background-color: var(--green); }
+.label.suspicious { background-color: var(--yellow); color: #333; }
+.label.phishing { background-color: var(--red); }
+
+#reasons {
+  list-style-type: "→  ";
+  padding-left: 1.5rem;
+  color: var(--muted);
+}
+
+#reasons li {
+  margin-bottom: 0.5rem;
+}
+
+.citation {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.citation a {
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--muted);
+}
+
+/* Welcome message */
+.welcome-bar {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+.welcome-bar a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  .field-row { flex-direction: column; }
+  .primary { width: 100%; }
+}

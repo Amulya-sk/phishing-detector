@@ -1,0 +1,177 @@
+/*  styles for login, register, and admin user pages */
+:root {
+  --bg1: #0a2342;
+  --bg2: #193c6b;
+  --card: #102542;
+  --card-2: #162d4a;
+  --accent: #4f8cff;
+  --muted: rgba(230, 246, 255, 0.72);
+  --text: #eaf6fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Segoe UI, Arial, sans-serif;
+  color: var(--text);
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header-bar {
+  background: var(--card);
+  color: var(--text);
+  padding: 18px 0;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.page-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  position: relative;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(16, 37, 66, 0.97);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 36px rgba(10, 35, 66, 0.35);
+  text-align: center;
+  position: relative;
+}
+
+.icon-wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.phishing-svg {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  box-shadow: 0 0 24px 8px #193c6b99, 0 0 0 8px #4f8cff33;
+  background: transparent;
+}
+
+.auth-title {
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.auth-sub {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.auth-form {
+  text-align: left;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  border-radius: 8px;
+  border: 1px solid #27435f;
+  background: #193c6b;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.auth-input::placeholder {
+  color: rgba(234, 246, 251, 0.45);
+}
+
+.auth-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #4f8cff33;
+  border-color: var(--accent);
+  background: #16304f;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 0;
+  background: linear-gradient(90deg, var(--accent) 60%, #193c6b);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(79, 140, 255, 0.12);
+}
+
+.auth-row {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.auth-link {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.footer-bar {
+  background: var(--card-2);
+  color: var(--accent);
+  text-align: center;
+  padding: 12px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -2px 8px rgba(79, 140, 255, 0.06);
+}
+
+.flash-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  color: #ffd6d6;
+}
+
+@media (max-width: 420px) {
+  .auth-card {
+    padding: 22px;
+  }
+}

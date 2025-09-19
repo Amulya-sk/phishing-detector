@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Registered Users | Phishing URL Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Page-specific styles for the user list */
+    .user-list { list-style: none; padding: 0; margin: 18px 0 24px; text-align: left; }
+    .user-list li { background: #162d4a; color: #eaf6fb; margin-bottom: 10px; padding: 10px 18px; border-radius: 8px; font-size: 1em; box-shadow: 0 1px 4px #193c6b33; display: flex; align-items: center; }
+    .user-list li::before { content: "👤"; margin-right: 12px; font-size: 1.1em; color: var(--accent); }
+    .back-link { display: inline-block; margin-top: 10px; color: var(--accent); text-decoration: none; font-weight: 500; padding: 8px 18px; border-radius: 8px; background: #162d4a; box-shadow: 0 1px 4px #193c6b33; transition: background 0.2s; }
+    .back-link:hover { background: #193c6b; color: #fff; }
+  </style> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+  <div class="header-bar">
+    🛡️ Phishing URL Detector
+  </div>
+  <div class="page-wrap">
+    <div class="auth-card" style="max-width: 500px;">
+      <div class="auth-title">Registered Users</div>
+      <ul class="user-list">
+        {% for user in users %}
+          <li>{{ user.username }}</li>
+        {% else %}
+          <li>No users found.</li>
+        {% endfor %}
+      </ul>
+      <a class="back-link" href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+    </div>
+  </div>
+  <div class="footer-bar">
+    &copy; 2025 Phishing URL Detector | Stay Safe Online!
+  </div>
+</body>
+</html>

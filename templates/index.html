@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phishing URL Detector</title>
+    <link rel="stylesheet" href="/static/style.css?v={{ asset_v }}">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Phishing URL Detector</h1>
+        <p class="subtitle">Paste a link to get an instant risk assessment</p>
+      </header>
+
+      {% if session.get('user') %}
+      <div class="welcome-bar">
+        Welcome, <strong>{{ session.get('user') }}</strong>! <a href="{{ url_for('logout') }}">Logout</a> {% if session.get('user') == 'admin' %}| <a href="{{ url_for('admin_users') }}">View Users</a>{% endif %}
+      </div>
+      {% endif %}
+
+      <section class="card">
+        <form id="check-form" class="form">
+          <label for="url" class="field-label">URL to analyze</label>
+          <div class="field-row">
+            <input type="text" id="url" placeholder="Enter a URL (e.g., https://example.com)" required autocomplete="off" autocapitalize="off" spellcheck="false">
+            <button type="submit" class="primary">Check</button>
+          </div>
+          <p class="helper">Tip: You can paste raw text like "@https://..." — the app normalizes it.</p>
+        </form>
+      </section>
+
+      <section id="result" class="hidden">
+        <div class="result-header">
+          <div class="score"><span id="score">0</span>/100</div>
+          <div class="label" id="label"></div>
+        </div>
+        <div id="details" class="details hidden"></div>
+        <ul id="reasons"></ul>
+        <div class="wiki-row hidden" id="wiki-row">
+          <a id="wiki-link" class="badge" href="#" target="_blank" rel="noopener noreferrer">View on Wikipedia</a>
+        </div>
+        <p class="citation">Learn more about these statuses on Wikipedia: <a href="https://en.wikipedia.org/wiki/Phishing" target="_blank" rel="noopener noreferrer">Phishing</a>, <a href="https://en.wikipedia.org/wiki/URL" target="_blank" rel="noopener noreferrer">URL</a>, <a href="https://en.wikipedia.org/wiki/Internationalized_domain_name" target="_blank" rel="noopener noreferrer">Internationalized domain name</a>.</p>
+      </section>
+
+      <footer>
+        <p>Heuristic-based only. Always verify suspicious links independently.</p>
+      </footer>
+    </div>
+
+    <script src="/static/app.js?v={{ asset_v }}"></script>
+  </body>
+  </html>

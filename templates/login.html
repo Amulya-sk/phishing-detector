@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login | Phishing URL Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+  <div class="header-bar">🛡️ Phishing URL Detector</div>
+
+  <div class="page-wrap">
+    <div class="auth-card">
+      <div class="icon-wrap">
+        <div class="phishing-svg" aria-hidden="true">
+          <svg width="56" height="56" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#193c6b"/>
+                <stop offset="1" stop-color="#4f8cff"/>
+              </linearGradient>
+            </defs>
+            <path d="M40 10 L65 20 V38 C65 55 53 67 40 70 C27 67 15 55 15 38 V20 Z" fill="url(#g2)" stroke="#cfe8ff" stroke-width="1.2"/>
+            <text x="50%" y="54%" text-anchor="middle" fill="#ff6b6b" font-size="22" font-family="Segoe UI" dy=".3em" style="filter:drop-shadow(0 0 6px #193c6b)">⚠️</text>
+          </svg>
+        </div>
+        <div class="auth-title">Welcome back</div>
+        <div class="auth-sub">Log in to check and manage phishing URL scans</div>
+      </div>
+
+      <form method="post" action="{{ url_for('login') }}" class="auth-form">
+        <div class="input-group">
+          <span class="input-icon">👤</span>
+          <input name="username" class="auth-input" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <span class="input-icon">🔒</span>
+          <input name="password" type="password" class="auth-input" placeholder="Password" required>
+        </div>
+
+        <button class="submit-btn" type="submit">Login</button>
+      </form>
+
+      <div class="auth-row">
+        <a class="auth-link" href="{{ url_for('register') }}">Don't have an account? Register</a>
+        <div>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class="flash-list">
+                {% for m in messages %}<li>{{ m }}</li>{% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">&copy; 2025 Phishing URL Detector | Stay Safe Online!</div>
+</body>
+</html>
